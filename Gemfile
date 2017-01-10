@@ -52,3 +52,6 @@ gem 'active_model_serializers'
 
 #Cross Domain Request
 gem 'rack-cors'
+
+# Documentation
+gem 'apipie-rails'

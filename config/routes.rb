@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   #get 'people/tryhere' => 'people#tryhere'
   # resources :people
 

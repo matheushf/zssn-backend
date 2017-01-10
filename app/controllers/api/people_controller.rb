@@ -2,10 +2,19 @@ module Api
   class PeopleController < ApplicationController
     before_action :set_person, only: [:show, :update, :destroy]
 
-    # Only allow a trusted parameter "white list" through.
-    def person_params
-      params.require(:person).permit(:id, :name, :age, :gender, :lonlat, :items)
+    resource_description do
+      short "API for managing People"
     end
+
+    api :GET, '/people', "Fetch all survivors"
+    description <<-EOS
+    == Fetch survivors
+     This API is used to fetch all survivors and his details.
+    === No authentication
+     No auth is required
+    EOS
+    formats ['json']
+    error :code => 404, :desc => "Survivor not yet created"
 
     # GET /api/people
     def index
@@ -14,10 +23,30 @@ module Api
       render json: people
     end
 
+    api :GET, '/people/:id', "Fetch single survivor"
+    description <<-EOS
+    == Fetch single survivor
+     This API is used to fetch information about a single survivor
+    === No authentication
+     No auth is required
+    EOS
+    formats ['json']
+    error :code => 404, :desc => "Survivor not yet created"
+
     # GET /people/1
     def show
       render json: @person
     end
+
+    api :POST, '/people', "Create Survivor"
+    description <<-EOS
+    == Create Survivor
+     This API is used to create a new survivor.
+    === No authentication
+     No auth is required
+    EOS
+    formats ['json']
+    error :code => 404, :desc => "Survivor not yet created"
 
     # POST /people
     def create
@@ -33,6 +62,16 @@ module Api
       end
     end
 
+    api :PATCH, '/people/:id', "Edit survivor"
+    description <<-EOS
+    == Edit survivor
+     This API is used to edit a survivor.
+    === No authentication
+     No auth is required
+    EOS
+    formats ['json']
+    error :code => 404, :desc => "Survivor not yet created"
+
     # PATCH/PUT /people/1
     def update
       if @person.update(person_params)
@@ -43,12 +82,32 @@ module Api
       end
     end
 
+    api :DELETE, '/people/:id', "Delete survivor"
+    description <<-EOS
+    == Delete Survivor
+     This API is used to delete a survivor.
+    === No authentication
+     No auth is required
+    EOS
+    formats ['json']
+    error :code => 404, :desc => "Survivor not yet created"
+
     # DELETE /people/1
     def destroy
       @person.destroy
       head 204
     end
 
+
+    api :GET, '/people/:id/properties', "Fetch items from survivor"
+    description <<-EOS
+    == Fetch items from survivor
+     This API is used to fetch all items from survivor.
+    === No authentication
+     No auth is required
+    EOS
+    formats ['json']
+    error :code => 404, :desc => "Survivor not yet created"
     # Properties Items
     def properties
 
@@ -73,6 +132,11 @@ module Api
       @person.location = request.original_url + '/' + id.to_s
       @person.save
 
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def person_params
+      params.require(:person).permit(:id, :name, :age, :gender, :lonlat, :items)
     end
 
   end
