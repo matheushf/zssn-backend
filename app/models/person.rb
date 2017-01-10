@@ -1,2 +1,3 @@
-class Person < ApplicationRecord
+class Person < ActiveRecord::Base
+
 end
