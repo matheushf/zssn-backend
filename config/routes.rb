@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'people/report_infection' => 'people#report_infection'
-    get 'people/:id/properties' => 'properties#properties'
+    get 'people/:id/properties' => 'properties#show'
     get 'people/:id/properties/trade_item' => 'properties#trade_item'
 
     resources :people
