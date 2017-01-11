@@ -24,6 +24,10 @@ Start the server
 
 `cd zssn-backend-codeminer42`
 
+`bundle`
+
+`bin/rails db:migrate RAILS_ENV=development`
+
 Start the server
 
 `rails s`
