@@ -47,6 +47,13 @@ module Api
     EOS
     formats ['json']
     error :code => 404, :desc => "Survivor not yet created"
+    param :person, Person do
+      param :name, String, :required => true
+      param :age, Integer, :required => true
+      param :gender, String, :required => true
+      param :lonlat, String
+      param :items, String, :required => true
+    end
 
     # POST /people
     def create
@@ -71,6 +78,12 @@ module Api
     EOS
     formats ['json']
     error :code => 404, :desc => "Survivor not yet created"
+    param :person, Hash, :required => true do
+      param :name, String, :required => true
+      param :age, Integer, :required => true
+      param :gender, String, :required => true
+      param :lonlat, String
+    end
 
     # PATCH/PUT /people/1
     def update
@@ -98,18 +111,21 @@ module Api
       head 204
     end
 
-
-    api :GET, '/people/:id/properties', "Fetch items from survivor"
+    api :GET, '/people/:id/report_infection', "Register infection suspect"
     description <<-EOS
     == Fetch items from survivor
-     This API is used to fetch all items from survivor.
+     Used to increase the infection count of a Person.
     === No authentication
      No auth is required
     EOS
     formats ['json']
     error :code => 404, :desc => "Survivor not yet created"
+    param :infected, String, :required => true
+    param :id, String, :required => true
+
     # Properties Items
-    def properties
+    #todo
+    def report_infection
 
     end
 

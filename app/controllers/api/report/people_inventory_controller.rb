@@ -11,7 +11,9 @@ module Api
       EOS
       formats ['json']
       error :code => 404, :desc => "Report not yet created"
+
       # GET /report/people_inventory
+      #todo
       def index
         #Average of the quantity of items per person (total and just non-infected)
 

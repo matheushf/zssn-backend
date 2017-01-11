@@ -10,7 +10,9 @@ module Api
       EOS
       formats ['json']
       error :code => 404, :desc => "Report not yet created"
+
       # GET /report/non_infected
+      #todo
       def index
         #Average of non-infected (healthy) people
 

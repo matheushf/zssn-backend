@@ -11,7 +11,9 @@ module Api
       EOS
       formats ['json']
       error :code => 404, :desc => "Report not yet created"
+
       # GET /report/infected_points
+      #todo
       def index
         #Total points lost in items that belong to infected people
 

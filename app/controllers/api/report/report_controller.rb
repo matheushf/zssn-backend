@@ -18,6 +18,7 @@ module Api
       error :code => 404, :desc => "Report not yet created"
 
       # GET /report
+      #todo
       def index
         # Show all the report api url's
         @reports = [

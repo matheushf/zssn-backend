@@ -13,6 +13,7 @@ module Api
       error :code => 404, :desc => "Report not yet created"
 
       # GET /report/infected
+      #todo
       def index
         #Average of infected people
 
