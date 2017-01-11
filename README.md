@@ -8,6 +8,10 @@
 
 `cd zssn-frontend-codeminer42`
 
+`npm install`
+
+`bower install`
+
 Start the server
 
 `gulp watch or gulp serve:dist`
