@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   apipie
-  #get 'people/tryhere' => 'people#tryhere'
-  # resources :people
 
   namespace :api do
     get 'people/report_infection' => 'people#report_infection'

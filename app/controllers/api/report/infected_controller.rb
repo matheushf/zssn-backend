@@ -2,7 +2,7 @@ module Api
   module Report
     class InfectedController < ApplicationController
 
-      api :GET, '/report/infected', "Average of Infected People"
+      api :GET, '/report/infected', "Average of Infected People", :show_in => ReportController
       description <<-EOS
     == Average of Infected People
      This API returns the average of infected people.
